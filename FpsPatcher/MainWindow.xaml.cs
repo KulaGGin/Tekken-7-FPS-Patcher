@@ -18,21 +18,9 @@ namespace FpsPatcher.UI {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
-        private int _fpsLimit;
 
         public MainWindow() {
             InitializeComponent();
-
-            _fpsLimit = int.Parse(FpsTextBox.Text);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            try {
-                _fpsLimit = int.Parse(FpsTextBox.Text);
-            }
-            catch(Exception) {
-                MessageBox.Show("Please enter correct FPS value");
-            }
         }
     }
 }
