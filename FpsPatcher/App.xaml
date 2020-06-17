@@ -1,9 +1,15 @@
-﻿<Application x:Class="FpsPatcher.UI.App"
+﻿<Application x:Class="FpsPatcher.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:FpsPatcher.UI"
+             xmlns:local="clr-namespace:FpsPatcher"
+             xmlns:ViewModels="clr-namespace:FpsPatcher.ViewModels;assembly=FpsPatcher.ViewModels"
              Startup="App_OnStartup">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DataTemplatesDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <ViewModels:MainViewModel x:Key="MainViewModel"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

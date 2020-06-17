@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using FpsPatcher.UI.Annotations;
 using System.Linq;
 
 

@@ -13,12 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Views {
+namespace FpsPatcher.Views {
     /// <summary>
     /// Interaction logic for PatchFPSView.xaml
     /// </summary>
-    public partial class PatchFPSView : UserControl {
-        public PatchFPSView() {
+    public partial class PatchFpsView : UserControl {
+        public PatchFpsView() {
             InitializeComponent();
         }
     }

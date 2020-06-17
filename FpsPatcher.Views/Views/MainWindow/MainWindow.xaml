@@ -1,15 +1,15 @@
-﻿<Window x:Class="FpsPatcher.UI.MainWindow"
+﻿<Window x:Class="FpsPatcher.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FpsPatcher.UI"
-        xmlns:vm="clr-namespace:FpsPatcher.UI.ViewModel"
-        xmlns:Views="clr-namespace:Views;assembly=Views"
+        xmlns:local="clr-namespace:FpsPatcher.Views"
+        xmlns:ViewModels="clr-namespace:FpsPatcher.ViewModels;assembly=FpsPatcher.ViewModels"
+        xmlns:Views="clr-namespace:FpsPatcher.Views"
         mc:Ignorable="d"
         Title="FPS Patcher" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Window.Resources>
-        <vm:MainViewModel x:Key="mainViewModel"/>
+        
     </Window.Resources>
-    <Views:PatchFPSView />
+    <ViewModels:PatchFpsViewModel />
 </Window>

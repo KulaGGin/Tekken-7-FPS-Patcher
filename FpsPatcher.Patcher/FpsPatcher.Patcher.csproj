@@ -7,8 +7,8 @@
     <ProjectGuid>{2F66318D-FAD9-4342-BB5D-365E4FA9D9AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Patcher</RootNamespace>
-    <AssemblyName>Patcher</AssemblyName>
+    <RootNamespace>FpsPatcher.Patcher</RootNamespace>
+    <AssemblyName>FpsPatcher.Patcher</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

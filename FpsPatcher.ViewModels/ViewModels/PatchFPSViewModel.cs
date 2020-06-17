@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ViewModels {
-    public class PatchFpsViewModel {
+namespace FpsPatcher.ViewModels {
+    public class PatchFpsViewModel : BaseViewModel {
         public bool OneFrameThreadLag;
     }
 }
