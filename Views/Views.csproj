@@ -58,9 +58,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+    <ProjectReference Include="..\ViewModels\FpsPatcher.ViewModels.csproj">
       <Project>{3d8cb35f-f48f-4132-9d26-1cb3a3a47b76}</Project>
-      <Name>ViewModels</Name>
+      <Name>FpsPatcher.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

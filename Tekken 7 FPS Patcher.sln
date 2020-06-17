@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FpsPatcher", "FpsPatcher\Fp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "Views\Views.csproj", "{B0AED873-8E0A-4DE3-AE84-3CD773061B9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{3D8CB35F-F48F-4132-9D26-1CB3A3A47B76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FpsPatcher.ViewModels", "FpsPatcher.ViewModels\FpsPatcher.ViewModels.csproj", "{3D8CB35F-F48F-4132-9D26-1CB3A3A47B76}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FpsPatcher.Base", "FpsPatcher.Base\FpsPatcher.Base.csproj", "{EF3C3B60-3E0D-4615-B225-82A4F374ED29}"
 EndProject
