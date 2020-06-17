@@ -46,9 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Patcher\Patcher.csproj">
+    <ProjectReference Include="..\FpsPatcher.Patcher\FpsPatcher.Patcher.csproj">
       <Project>{2f66318d-fad9-4342-bb5d-365e4fa9d9aa}</Project>
-      <Name>Patcher</Name>
+      <Name>FpsPatcher.Patcher</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
