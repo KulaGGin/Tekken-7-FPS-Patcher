@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Views", "Views\Views.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{3D8CB35F-F48F-4132-9D26-1CB3A3A47B76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "Base\Base.csproj", "{EF3C3B60-3E0D-4615-B225-82A4F374ED29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FpsPatcher.Base", "FpsPatcher.Base\FpsPatcher.Base.csproj", "{EF3C3B60-3E0D-4615-B225-82A4F374ED29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
