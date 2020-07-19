@@ -44,14 +44,19 @@
     <Compile Include="fpsPatcher.cs" />
     <Compile Include="Injections\CodeCaveInjection.cs" />
     <Compile Include="Injections\IAoBInjection.cs" />
-    <Compile Include="Mods\FPS Mod\FpsMod.cs" />
-    <Compile Include="Mods\FPS Mod\MatchEndInjection.cs" />
-    <Compile Include="Mods\FPS Mod\MatchExitInjection.cs" />
-    <Compile Include="Mods\FPS Mod\MatchStartInjection.cs" />
-    <Compile Include="Mods\Ini Mod\IniMod.cs" />
+    <Compile Include="Mods\Ini Mods\EngineIniMod.cs" />
+    <Compile Include="Mods\Ini Mods\ROneFrameThreadLagMod.cs" />
     <Compile Include="Mods\Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FpsPatcher.Managers\FpsPatcher.Managers.csproj">
+      <Project>{0b6701fc-9b1a-4b8f-bbba-c3b706387fd7}</Project>
+      <Name>FpsPatcher.Managers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mods\FPS Mod\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

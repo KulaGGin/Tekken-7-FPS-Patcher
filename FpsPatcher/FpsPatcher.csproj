@@ -88,9 +88,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FpsPatcher.Base\FpsPatcher.Base.csproj">
-      <Project>{ef3c3b60-3e0d-4615-b225-82a4f374ed29}</Project>
-      <Name>FpsPatcher.Base</Name>
+    <ProjectReference Include="..\FpsPatcher.Converters\FpsPatcher.Converters.csproj">
+      <Project>{cfc840ec-d746-4c22-849b-1546b7277bd9}</Project>
+      <Name>FpsPatcher.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FpsPatcher.Managers\FpsPatcher.Managers.csproj">
+      <Project>{0b6701fc-9b1a-4b8f-bbba-c3b706387fd7}</Project>
+      <Name>FpsPatcher.Managers</Name>
     </ProjectReference>
     <ProjectReference Include="..\FpsPatcher.Patcher\FpsPatcher.Patcher.csproj">
       <Project>{2f66318d-fad9-4342-bb5d-365e4fa9d9aa}</Project>

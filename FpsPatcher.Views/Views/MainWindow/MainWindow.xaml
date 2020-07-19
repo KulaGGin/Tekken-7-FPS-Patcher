@@ -7,9 +7,11 @@
         xmlns:ViewModels="clr-namespace:FpsPatcher.ViewModels;assembly=FpsPatcher.ViewModels"
         xmlns:Views="clr-namespace:FpsPatcher.Views"
         mc:Ignorable="d"
-        Title="FPS Patcher" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+        Title="Tekken 7 FPS Patcher" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Window.Resources>
-        
+        <ViewModels:PatchFpsViewModel x:Key="PatchFpsViewModel"/>
     </Window.Resources>
-    <ViewModels:PatchFpsViewModel />
+    <Grid>
+        <ContentControl Content="{StaticResource PatchFpsViewModel}" />
+    </Grid>
 </Window>

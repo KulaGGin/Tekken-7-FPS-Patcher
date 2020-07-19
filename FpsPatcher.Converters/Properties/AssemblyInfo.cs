@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Base")]
+[assembly: AssemblyTitle("FpsPatcher.Converters")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Base")]
+[assembly: AssemblyProduct("FpsPatcher.Converters")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ef3c3b60-3e0d-4615-b225-82a4f374ed29")]
+[assembly: Guid("cfc840ec-d746-4c22-849b-1546b7277bd9")]
 
 // Version information for an assembly consists of the following four values:
 //

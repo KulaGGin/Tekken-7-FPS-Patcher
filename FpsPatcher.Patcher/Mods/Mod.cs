@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Patcher.Mods {
-    abstract class Mod {
+    abstract public class Mod {
         private bool _enabled;
 
         public abstract void ApplyMod();
