@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Mods">
+      <UniqueIdentifier>{04b9303d-3009-4c38-a427-a89d30a435a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Injections">
+      <UniqueIdentifier>{26231aed-3593-40ea-9dae-93ad378f39ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mods\FPSMod">
+      <UniqueIdentifier>{69e12e17-a0b5-41a3-a78e-32065440a0ca}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Mods\Mod.cpp">
+      <Filter>Mods</Filter>
+    </ClCompile>
+    <ClCompile Include="Mods\FPSMod\FPSMod.cpp">
+      <Filter>Mods\FPSMod</Filter>
+    </ClCompile>
+    <ClCompile Include="Injections\CodeCaveAoBInjection.cpp">
+      <Filter>Injections</Filter>
+    </ClCompile>
+    <ClCompile Include="Injections\AOBInjection.cpp">
+      <Filter>Injections</Filter>
+    </ClCompile>
+    <ClCompile Include="Mods\FPSMod\MatchStartInjection.cpp">
+      <Filter>Mods\FPSMod</Filter>
+    </ClCompile>
+    <ClCompile Include="Mods\FPSMod\MatchEndInjection.cpp">
+      <Filter>Mods\FPSMod</Filter>
+    </ClCompile>
+    <ClCompile Include="Mods\FPSMod\SimpleSelectFixInjection.cpp" />
+    <ClCompile Include="Mods\FPSMod\MatchExitInjection.cpp">
+      <Filter>Mods\FPSMod</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="Mods\Mod.h">
+      <Filter>Mods</Filter>
+    </ClInclude>
+    <ClInclude Include="Mods\FPSMod\FPSMod.h">
+      <Filter>Mods\FPSMod</Filter>
+    </ClInclude>
+    <ClInclude Include="Injections\CodeCaveAoBInjection.h">
+      <Filter>Injections</Filter>
+    </ClInclude>
+    <ClInclude Include="Injections\AOBInjection.h">
+      <Filter>Injections</Filter>
+    </ClInclude>
+    <ClInclude Include="Mods\FPSMod\MatchStartInjection.h">
+      <Filter>Mods\FPSMod</Filter>
+    </ClInclude>
+    <ClInclude Include="Mods\FPSMod\MatchEndInjection.h">
+      <Filter>Mods\FPSMod</Filter>
+    </ClInclude>
+    <ClInclude Include="Mods\FPSMod\SimpleSelectFixInjection.h" />
+    <ClInclude Include="Mods\FPSMod\MatchExitInjection.h">
+      <Filter>Mods\FPSMod</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
