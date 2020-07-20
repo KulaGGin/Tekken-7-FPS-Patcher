@@ -34,6 +34,6 @@
                  Text="{Binding OneFrameThreadLag, Converter={StaticResource BooleanToNumberConverter}, UpdateSourceTrigger=PropertyChanged}"
                  ToolTip="{StaticResource ROneFrameThreadLagToolTip}"/>
         <Button Grid.Row="2" Grid.Column="0"
-                Content="Patch" Command="{Binding PatchCommand}" />
+                Content="Patch" Click="Button_Click" />
     </Grid>
 </UserControl>

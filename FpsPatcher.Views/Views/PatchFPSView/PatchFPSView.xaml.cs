@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FpsPatcher.ViewModels;
+using Microsoft.Win32;
+
 
 namespace FpsPatcher.Views {
     /// <summary>
@@ -20,6 +23,29 @@ namespace FpsPatcher.Views {
     public partial class PatchFpsView : UserControl {
         public PatchFpsView() {
             InitializeComponent();
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            PatchFpsViewModel patchFpsViewModel = FindResource("PatchFpsViewModel") as PatchFpsViewModel;
+
+            if(patchFpsViewModel == null)
+                throw new Exception("Couldn't find the viewmodel");
+
+            const string executableName = "TekkenGame-Win64-Shipping.exe";
+            MessageBox.Show("Choose " + executableName);
+            OpenFileDialog openFileDialog = new OpenFileDialog {
+                                                                   Filter = $"{executableName}|{executableName}",
+                                                                   InitialDirectory = patchFpsViewModel._openFileDialogStartDirectory
+                                                               };
+
+            bool? openFileDialogResult = openFileDialog.ShowDialog();
+
+            if (openFileDialogResult != true)
+                return;
+
+            patchFpsViewModel.PatchCommand.Execute(openFileDialog.FileName);
+
         }
     }
 }
