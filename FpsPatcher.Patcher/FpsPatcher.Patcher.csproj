@@ -44,6 +44,7 @@
     <Compile Include="fpsPatcher.cs" />
     <Compile Include="Injections\CodeCaveInjection.cs" />
     <Compile Include="Injections\IAoBInjection.cs" />
+    <Compile Include="Mods\DllMod\DllMod.cs" />
     <Compile Include="Mods\IniMods\EngineIniMod.cs" />
     <Compile Include="Mods\IniMods\ROneFrameThreadLagMod.cs" />
     <Compile Include="Mods\Mod.cs" />
