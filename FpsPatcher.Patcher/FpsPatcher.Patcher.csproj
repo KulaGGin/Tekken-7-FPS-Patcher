@@ -44,7 +44,7 @@
     <Compile Include="fpsPatcher.cs" />
     <Compile Include="Injections\CodeCaveInjection.cs" />
     <Compile Include="Injections\IAoBInjection.cs" />
-    <Compile Include="Mods\Ini Mods\EngineIniMod.cs" />
+    <Compile Include="Mods\IniMods\EngineIniMod.cs" />
     <Compile Include="Mods\IniMods\ROneFrameThreadLagMod.cs" />
     <Compile Include="Mods\Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,8 +55,6 @@
       <Name>FpsPatcher.Managers</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mods\FPS Mod\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
