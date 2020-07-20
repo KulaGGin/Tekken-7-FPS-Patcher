@@ -13,7 +13,7 @@ using Patcher.Mods.Ini_Mod;
 
 namespace FpsPatcher.ViewModels {
     public class PatchFpsViewModel : BaseViewModel {
-        public readonly string DialogStartLocation = AppDomain.CurrentDomain.BaseDirectory;
+        public string _openFileDialogStartDirectory = AppDomain.CurrentDomain.BaseDirectory;
         private bool _oneFrameThreadLag = true;
         private ActionCommand _patchCommand;
 
@@ -28,7 +28,7 @@ namespace FpsPatcher.ViewModels {
                 string tekkenShippingExePath = steamPath + "\\steamapps\\common\\TEKKEN 7\\TekkenGame\\Binaries\\Win64";
 
                 if(Directory.Exists(tekkenShippingExePath)) {
-                    DialogStartLocation = tekkenShippingExePath;
+                    this._openFileDialogStartDirectory = tekkenShippingExePath;
                 }
             }
         }
@@ -53,10 +53,11 @@ namespace FpsPatcher.ViewModels {
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="parameter"></param>
-        public void PatchAction(object parameter) {
+        /// <param name="tekkenShippingExePath"></param>
+        public void PatchAction(object tekkenShippingExePath) {
+
             _rOneFrameThreadLagMod.ApplyMod(Convert.ToInt32(OneFrameThreadLag));
-            _dllMod.ApplyMod();
+            _dllMod.ApplyMod(tekkenShippingExePath as string);
         }
 
         static string GetSteamPath() {
