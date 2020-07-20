@@ -17,8 +17,7 @@ namespace FpsPatcher {
         private MainWindow mainWindow;
 
         private void App_OnStartup(object sender, StartupEventArgs e) {
-            mainWindow = new MainWindow();
-            mainWindow.DataContext = FindResource("MainViewModel");
+            mainWindow = new MainWindow {DataContext = FindResource("MainViewModel")};
             mainWindow.Show();
         }
     }
