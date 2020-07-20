@@ -10,18 +10,8 @@ using Patcher.Mods;
 
 namespace FpsPatcher.Patcher.Mods.DllMod {
     public class DllMod : Mod {
-        private readonly string _dialogStartLocation = AppDomain.CurrentDomain.BaseDirectory;
-
         public DllMod() {
-            string steamPath = GetSteamPath();
 
-            if (steamPath != "") {
-                string tekkenShippingExePath = steamPath + "\\steamapps\\common\\TEKKEN 7\\TekkenGame\\Binaries\\Win64";
-
-                if (Directory.Exists(tekkenShippingExePath)) {
-                    _dialogStartLocation = tekkenShippingExePath;
-                }
-            }
         }
 
         #region Overrides of Mod
@@ -37,17 +27,6 @@ namespace FpsPatcher.Patcher.Mods.DllMod {
 
         #endregion
 
-        static string GetSteamPath() {
-            string steamPath;
 
-            using(RegistryKey view = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, System.Environment.Is64BitOperatingSystem ? RegistryView.Registry32 : RegistryView.Default)) {
-                using(RegistryKey steam = view.OpenSubKey(@"SOFTWARE\Valve\Steam", false)) {
-                    // actually accessing Wow6432Node 
-                    steamPath = steam?.GetValue("InstallPath", "") as string;
-                }
-            }
-
-            return steamPath;
-        }
     }
 }
