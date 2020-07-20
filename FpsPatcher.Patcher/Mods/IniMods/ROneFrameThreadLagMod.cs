@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FpsPatcher.Managers;
-using FpsPatcher.Patcher.Mods.Ini_Mods;
+using FpsPatcher.Patcher.Mods.IniMods;
 
 namespace Patcher.Mods.Ini_Mod {
     public class ROneFrameThreadLagMod : EngineIniMod {
 
-        private IniFileManager engineIniFileManager;
-        private string section = "SystemSettings";
-        private string key = "r.OneFrameThreadLag";
-
+        private readonly IniFileManager _engineIniFileManager;
+        private const string _section = "SystemSettings";
+        private const string _key = "r.OneFrameThreadLag";
 
         public ROneFrameThreadLagMod() {
-            engineIniFileManager = new IniFileManager(EngineIniPath);
+            _engineIniFileManager = new IniFileManager(_engineIniPath);
         }
 
         public void ApplyMod(int oneFrameThreadLag) {
@@ -23,7 +22,7 @@ namespace Patcher.Mods.Ini_Mod {
         }
 
         private void SetROneFrameThreadLag(int value) {
-            engineIniFileManager.WriteValue(section, key, value.ToString());
+            _engineIniFileManager.WriteValue(_section, _key, value.ToString());
         }
 
         #region Overrides of Mod

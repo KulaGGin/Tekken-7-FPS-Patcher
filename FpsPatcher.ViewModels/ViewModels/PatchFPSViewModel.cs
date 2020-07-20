@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FpsPatcher.Patcher.Mods.DllMod;
 using FpsPatcher.ViewModels.Commands;
 using Patcher.Mods.Ini_Mod;
 
@@ -11,9 +12,14 @@ using Patcher.Mods.Ini_Mod;
 namespace FpsPatcher.ViewModels {
     public class PatchFpsViewModel : BaseViewModel {
         private bool _oneFrameThreadLag = true;
-        private ActionCommand patchCommand;
+        private ActionCommand _patchCommand;
 
-        private ROneFrameThreadLagMod rOneFrameThreadLagMod = new ROneFrameThreadLagMod();
+        private readonly ROneFrameThreadLagMod _rOneFrameThreadLagMod = new ROneFrameThreadLagMod();
+        private readonly DllMod _dllMod = new DllMod();
+
+
+        public PatchFpsViewModel() {
+        }
 
         public int FpsLimit { get; set; } = 120;
 
@@ -29,7 +35,7 @@ namespace FpsPatcher.ViewModels {
 
         
         public ActionCommand PatchCommand {
-            get { return patchCommand ?? (patchCommand = new ActionCommand(PatchAction)); }
+            get { return _patchCommand ??= new ActionCommand(PatchAction); }
         }
 
         /// <summary>
@@ -37,8 +43,8 @@ namespace FpsPatcher.ViewModels {
         /// </summary>
         /// <param name="parameter"></param>
         public void PatchAction(object parameter) {
-            rOneFrameThreadLagMod.ApplyMod(Convert.ToInt32(OneFrameThreadLag));
-
+            _rOneFrameThreadLagMod.ApplyMod(Convert.ToInt32(OneFrameThreadLag));
+            _dllMod.ApplyMod();
         }
     }
 }
