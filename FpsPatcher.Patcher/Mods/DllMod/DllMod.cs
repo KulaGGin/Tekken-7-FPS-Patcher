@@ -45,6 +45,7 @@ namespace FPSPatcher.Patcher.Mods.DllMod {
             File.Copy(_fpsPatcherDllPath, tekkenShippingFolder + "\\" + _fpsPatcherDllName, true);
 
             // todo align by 10000 only if we're going to write it
+            // todo create backup of the original tekkenShippingExe file
             // load the target file and change size so it's aligned by 0x10000
             List<byte> tekkenExeBytes = File.ReadAllBytes(tekkenShippingExePath).ToList();
             var neededForAlignment = 0x10000 - tekkenExeBytes.Count % 0x10000;
