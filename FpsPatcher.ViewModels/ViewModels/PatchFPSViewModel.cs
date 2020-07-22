@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FPSPatcher.Patcher.Mods.DllMod;
+using FPSPatcher.Patcher.Mods.DLLMod;
 using FPSPatcher.ViewModels.Commands;
 using Microsoft.Win32;
 using Patcher.Mods.Ini_Mod;
@@ -18,7 +18,7 @@ namespace FPSPatcher.ViewModels {
         private ActionCommand _patchCommand;
 
         private readonly ROneFrameThreadLagMod _rOneFrameThreadLagMod = new ROneFrameThreadLagMod();
-        private readonly DllMod _dllMod = new DllMod();
+        private readonly DLLMod _dllMod = new DLLMod();
 
 
         public PatchFPSViewModel() {
