@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FpsPatcher.Managers;
-using FpsPatcher.Patcher.Mods.IniMods;
+using FPSPatcher.Managers;
+using FPSPatcher.Patcher.Mods.IniMods;
 
 namespace Patcher.Mods.Ini_Mod {
     public class ROneFrameThreadLagMod : EngineIniMod {

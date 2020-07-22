@@ -1,6 +1,6 @@
 #pragma once
 
-namespace FpsPatcher {
+namespace FPSPatcher {
     class Mod {
     protected:
         virtual ~Mod() = default;

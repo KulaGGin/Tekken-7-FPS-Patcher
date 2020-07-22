@@ -6,10 +6,10 @@
 #include "Mods/Mod.h"
 #include "SimpleSelectFixInjection.h"
 
-namespace FpsPatcher {
-    class FpsMod final : Mod {
+namespace FPSPatcher {
+    class FPSMod final : Mod {
     public:
-        explicit FpsMod(MemoryCommando::MemoryCommando& memoryCommando);
+        explicit FPSMod(MemoryCommando::MemoryCommando& memoryCommando);
 
         void ApplyMod() override;
         void CancelMod() override;
@@ -19,19 +19,19 @@ namespace FpsPatcher {
     protected:
         MemoryCommando::MemoryCommando& _memoryCommando;
         uintptr_t _inGameFPSVariable;
-        size_t _maxFps;
+        size_t _maxFPS;
         MatchStartInjection _matchStartInjection;
         SimpleSelectFixInjection _simpleSelectFixInjection;
         MatchEndInjection _matchEndInjection;
         MatchExitInjection _matchExitInjection;
 
-        static uintptr_t GetInGameMaxFpsVariableAddress(MemoryCommando::MemoryCommando& memoryCommando);
+        static uintptr_t GetInGameMaxFPSVariableAddress(MemoryCommando::MemoryCommando& memoryCommando);
     private:
-        size_t InitializeMaxFps() const;
+        size_t InitializeMaxFPS() const;
     };
 
     template <typename Classname>
-    void FpsMod::Append(std::vector<Classname>& vectorToAppendTo, const std::vector<Classname>& vectorToAppend) {
+    void FPSMod::Append(std::vector<Classname>& vectorToAppendTo, const std::vector<Classname>& vectorToAppend) {
         vectorToAppendTo.insert(vectorToAppendTo.end(), vectorToAppend.begin(), vectorToAppend.end());
     }
 }

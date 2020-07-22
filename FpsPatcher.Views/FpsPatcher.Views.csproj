@@ -6,8 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FpsPatcher.Converters\FpsPatcher.Converters.csproj" />
-    <ProjectReference Include="..\FpsPatcher.ViewModels\FpsPatcher.ViewModels.csproj" />
+    <ProjectReference Include="..\FPSPatcher.Converters\FPSPatcher.Converters.csproj" />
+    <ProjectReference Include="..\FPSPatcher.ViewModels\FPSPatcher.ViewModels.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

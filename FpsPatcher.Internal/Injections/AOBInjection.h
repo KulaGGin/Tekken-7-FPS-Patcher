@@ -4,7 +4,7 @@
 
 #include "MemoryCommandoCPP/MemoryCommando/MemoryCommando.h"
 
-namespace FpsPatcher {
+namespace FPSPatcher {
     class AOBInjection {
     public:
         std::string GetAoBSignature() const;

@@ -7,7 +7,7 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FpsPatcher.Patcher\FpsPatcher.Patcher.csproj" />
+    <ProjectReference Include="..\FPSPatcher.Patcher\FPSPatcher.Patcher.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

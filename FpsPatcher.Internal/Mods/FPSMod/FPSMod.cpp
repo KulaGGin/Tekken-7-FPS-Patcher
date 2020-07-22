@@ -5,33 +5,33 @@
 #include "inipp.h"
 #include <thread>
 
-namespace FpsPatcher {
-    FpsMod::FpsMod(MemoryCommando::MemoryCommando& memoryCommando):
+namespace FPSPatcher {
+    FPSMod::FPSMod(MemoryCommando::MemoryCommando& memoryCommando):
         _memoryCommando(memoryCommando),
-        _inGameFPSVariable{ GetInGameMaxFpsVariableAddress(_memoryCommando) },
-        _maxFps(InitializeMaxFps()),
-        _matchStartInjection{ memoryCommando, _inGameFPSVariable, _maxFps },
+        _inGameFPSVariable{ GetInGameMaxFPSVariableAddress(_memoryCommando) },
+        _maxFPS(InitializeMaxFPS()),
+        _matchStartInjection{ memoryCommando, _inGameFPSVariable, _maxFPS },
         _simpleSelectFixInjection{ memoryCommando },
         _matchEndInjection{ memoryCommando, _inGameFPSVariable },
         _matchExitInjection(memoryCommando, _inGameFPSVariable) {
 
     }
 
-    void FpsMod::ApplyMod() {
+    void FPSMod::ApplyMod() {
         _matchStartInjection.Inject();
         _simpleSelectFixInjection.Inject();
         _matchEndInjection.Inject();
         _matchExitInjection.Inject();
     }
 
-    void FpsMod::CancelMod() {
+    void FPSMod::CancelMod() {
         _matchStartInjection.CancelInjection();
         _simpleSelectFixInjection.CancelInjection();
         _matchEndInjection.CancelInjection();
         _matchExitInjection.CancelInjection();
     }
 
-    uintptr_t FpsMod::GetInGameMaxFpsVariableAddress(MemoryCommando::MemoryCommando& memoryCommando) {
+    uintptr_t FPSMod::GetInGameMaxFPSVariableAddress(MemoryCommando::MemoryCommando& memoryCommando) {
         const uintptr_t fpsBaseClassOffsetAddress = memoryCommando.ScanVirtualMemory(L"TekkenGame-Win64-Shipping.exe",
             std::string(std::string("?? ?? ?? ?? F3 0F 10 00 41 0F 2F C0 77 03 0F 28 C6 0F 28 74 24 40 44 0F 28 44 24 30 44 0F 28 4C 24 20 48 83 C4 50 5B C3")))[0];
 
@@ -47,12 +47,12 @@ namespace FpsPatcher {
         return fpsAddress;
     }
 
-    size_t FpsMod::InitializeMaxFps() const {
+    size_t FPSMod::InitializeMaxFPS() const {
         inipp::Ini<char> ini;
         std::ifstream is("maxFPS.ini");
         ini.parse(is);
         int maxFPS{};
-        inipp::extract(ini.sections["maxFps"]["maxFps"], maxFPS);
+        inipp::extract(ini.sections["maxFPS"]["maxFPS"], maxFPS);
 
         return size_t(maxFPS);
     }

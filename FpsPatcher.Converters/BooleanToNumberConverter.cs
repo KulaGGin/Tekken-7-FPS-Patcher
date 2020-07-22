@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace FpsPatcher.Converters {
+namespace FPSPatcher.Converters {
     public class BooleanToNumberConverter : IValueConverter {
 
         #region Implementation of IValueConverter

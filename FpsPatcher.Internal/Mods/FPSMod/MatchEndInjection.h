@@ -1,7 +1,7 @@
 #pragma once
 #include "Injections/CodeCaveAoBInjection.h"
 
-namespace FpsPatcher {
+namespace FPSPatcher {
     class MatchEndInjection : public CodeCaveAoBInjection {
     public:
         explicit MatchEndInjection(MemoryCommando::MemoryCommando& memoryCommando, uintptr_t inGameFPSVariableAddress);

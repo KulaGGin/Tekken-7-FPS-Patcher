@@ -6,7 +6,7 @@
 
 #include "AOBInjection.h"
 
-namespace FpsPatcher {
+namespace FPSPatcher {
     class CodeCaveAoBInjection : public AOBInjection {
     public:
         virtual ~CodeCaveAoBInjection();

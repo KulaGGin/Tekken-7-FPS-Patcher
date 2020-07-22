@@ -5,17 +5,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FpsPatcher.Managers;
+using FPSPatcher.Managers;
 using Microsoft.Win32;
 using Patcher.Mods;
 using PeNet;
 using PeNet.Header.Pe;
 
 
-namespace FpsPatcher.Patcher.Mods.DllMod {
+namespace FPSPatcher.Patcher.Mods.DllMod {
     public class DllMod : Mod {
-        private const string _fpsPatcherDllName = "FpsPatcher.Internal.dll";
-        private readonly string _fpsPatcherDllPath = AppDomain.CurrentDomain.BaseDirectory + "\\" + "FpsPatcher.Internal.dll";
+        private const string _fpsPatcherDllName = "FPSPatcher.Internal.dll";
+        private readonly string _fpsPatcherDllPath = AppDomain.CurrentDomain.BaseDirectory + "\\" + "FPSPatcher.Internal.dll";
         public DllMod() {
 
         }
@@ -32,11 +32,11 @@ namespace FpsPatcher.Patcher.Mods.DllMod {
 
         public void ApplyMod(string tekkenShippingExePath, int fpsLimit) {
             string tekkenShippingFolder = Path.GetDirectoryName(tekkenShippingExePath);
-            string maxFpsIniFilePath = tekkenShippingFolder + "\\maxFps.ini";
+            string maxFPSIniFilePath = tekkenShippingFolder + "\\maxFPS.ini";
 
-            IniFileManager iniFileManager = new IniFileManager(maxFpsIniFilePath);
+            IniFileManager iniFileManager = new IniFileManager(maxFPSIniFilePath);
 
-            iniFileManager.WriteValue("maxFps", "maxFps", fpsLimit.ToString());
+            iniFileManager.WriteValue("maxFPS", "maxFPS", fpsLimit.ToString());
 
             if (!File.Exists(_fpsPatcherDllPath)) {
                 throw new Exception("Can't find" + _fpsPatcherDllName + ".");
@@ -57,7 +57,7 @@ namespace FpsPatcher.Patcher.Mods.DllMod {
                 return;
 
             //add our new import to the exe (in memory)
-            var ai = new AdditionalImport(_fpsPatcherDllName, new List<string> { "?FpsPatchInternal@@YAKPEAUHINSTANCE__@@@Z" });
+            var ai = new AdditionalImport(_fpsPatcherDllName, new List<string> { "?FPSPatchInternal@@YAKPEAUHINSTANCE__@@@Z" });
             tekkenExePeFile.AddImports(new List<AdditionalImport> { ai });
             //write changes to disk
             File.WriteAllBytes(tekkenShippingExePath, tekkenExePeFile.RawFile.ToArray());

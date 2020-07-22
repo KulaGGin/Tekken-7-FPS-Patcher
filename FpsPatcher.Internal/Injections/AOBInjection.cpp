@@ -1,6 +1,6 @@
 #include "AOBInjection.h"
 
-namespace FpsPatcher {
+namespace FPSPatcher {
     AOBInjection::AOBInjection(MemoryCommando::MemoryCommando& memoryCommando) : _memoryCommando(memoryCommando) {
     }
 

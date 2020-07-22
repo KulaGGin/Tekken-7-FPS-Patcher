@@ -5,7 +5,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FpsPatcher.Managers\FpsPatcher.Managers.csproj" />
+    <ProjectReference Include="..\FPSPatcher.Managers\FPSPatcher.Managers.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 
 
-namespace FpsPatcher.ViewModels {
+namespace FPSPatcher.ViewModels {
     public class MainViewModel : BaseViewModel {
 
         public MainViewModel() {

@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FpsPatcher.Patcher", "FpsPatcher.Patcher\FpsPatcher.Patcher.csproj", "{2F66318D-FAD9-4342-BB5D-365E4FA9D9AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPSPatcher.Patcher", "FpsPatcher.Patcher\FPSPatcher.Patcher.csproj", "{2F66318D-FAD9-4342-BB5D-365E4FA9D9AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FpsPatcher", "FpsPatcher\FpsPatcher.csproj", "{933F91E3-9706-4DC6-8D66-6E9D5D21C445}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPSPatcher", "FPSPatcher\FPSPatcher.csproj", "{933F91E3-9706-4DC6-8D66-6E9D5D21C445}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FpsPatcher.Views", "FpsPatcher.Views\FpsPatcher.Views.csproj", "{B0AED873-8E0A-4DE3-AE84-3CD773061B9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPSPatcher.Views", "FPSPatcher.Views\FPSPatcher.Views.csproj", "{B0AED873-8E0A-4DE3-AE84-3CD773061B9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FpsPatcher.ViewModels", "FpsPatcher.ViewModels\FpsPatcher.ViewModels.csproj", "{3D8CB35F-F48F-4132-9D26-1CB3A3A47B76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPSPatcher.ViewModels", "FPSPatcher.ViewModels\FPSPatcher.ViewModels.csproj", "{3D8CB35F-F48F-4132-9D26-1CB3A3A47B76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FpsPatcher.Managers", "FpsPatcher.Managers\FpsPatcher.Managers.csproj", "{0B6701FC-9B1A-4B8F-BBBA-C3B706387FD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPSPatcher.Managers", "FPSPatcher.Managers\FPSPatcher.Managers.csproj", "{0B6701FC-9B1A-4B8F-BBBA-C3B706387FD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FpsPatcher.Converters", "FpsPatcher.Converters\FpsPatcher.Converters.csproj", "{CFC840EC-D746-4C22-849B-1546B7277BD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPSPatcher.Converters", "FPSPatcher.Converters\FPSPatcher.Converters.csproj", "{CFC840EC-D746-4C22-849B-1546B7277BD9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FpsPatcher.Internal", "FpsPatcher.Internal\FpsPatcher.Internal.vcxproj", "{DFE12F06-BAA1-4708-A441-ED46F3BBD088}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FPSPatcher.Internal", "FPSPatcher.Internal\FPSPatcher.Internal.vcxproj", "{DFE12F06-BAA1-4708-A441-ED46F3BBD088}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MemoryCommando", "MemoryCommandoCPP\MemoryCommando\MemoryCommando.vcxproj", "{F7C6546C-6A63-4581-B5B2-AC7B64DEF04B}"
 EndProject

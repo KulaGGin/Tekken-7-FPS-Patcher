@@ -3,7 +3,7 @@
 #include "MemoryCommandoCPP/MemoryCommando/Exceptions/VirtualAllocException.h"
 #include <algorithm>
 
-namespace FpsPatcher {
+namespace FPSPatcher {
 
     /*CodeCaveAoBInjection::CodeCaveAoBInjection(MemoryCommando::MemoryCommando& memoryCommando,
                                                std::string                     aobInjectionSignature,

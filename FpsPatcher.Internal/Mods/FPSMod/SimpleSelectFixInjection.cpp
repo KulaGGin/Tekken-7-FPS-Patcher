@@ -1,6 +1,6 @@
 #include "SimpleSelectFixInjection.h"
 
-namespace FpsPatcher {
+namespace FPSPatcher {
     SimpleSelectFixInjection::SimpleSelectFixInjection(MemoryCommando::MemoryCommando& memoryCommando): AOBInjection(memoryCommando) {
         _aobSignature = "FF 90 40 02 00 00 E8";
         _originalInstructionsLength = 6;

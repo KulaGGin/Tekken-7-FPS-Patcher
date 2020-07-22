@@ -2,7 +2,7 @@
 
 #include "Injections/CodeCaveAoBInjection.h"
 
-namespace FpsPatcher {
+namespace FPSPatcher {
     class MatchExitInjection final : public CodeCaveAoBInjection {
 
     public:

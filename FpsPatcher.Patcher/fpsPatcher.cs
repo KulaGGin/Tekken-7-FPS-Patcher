@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 
 namespace Patcher {
-    public class FpsPatcher {
+    public class FPSPatcher {
         public void PatchFPS() {
             throw new NotImplementedException();
         }

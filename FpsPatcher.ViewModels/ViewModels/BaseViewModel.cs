@@ -5,10 +5,10 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using FpsPatcher.ViewModels.Annotations;
+using FPSPatcher.ViewModels.Annotations;
 
 
-namespace FpsPatcher.ViewModels {
+namespace FPSPatcher.ViewModels {
     public class BaseViewModel : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
 

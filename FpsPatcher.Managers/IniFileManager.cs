@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace FpsPatcher.Managers {
+namespace FPSPatcher.Managers {
     /// <summary>
     /// Create a New INI file to store or load data
     /// </summary>

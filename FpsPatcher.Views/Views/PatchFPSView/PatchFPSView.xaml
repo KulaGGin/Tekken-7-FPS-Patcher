@@ -1,12 +1,12 @@
-﻿<UserControl x:Class="FpsPatcher.Views.PatchFpsView"
+﻿<UserControl x:Class="FPSPatcher.Views.PatchFPSView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:FpsPatcher.Views"
-             xmlns:ViewModels="clr-namespace:FpsPatcher.ViewModels;assembly=FpsPatcher.ViewModels"
+             xmlns:local="clr-namespace:FPSPatcher.Views"
+             xmlns:ViewModels="clr-namespace:FPSPatcher.ViewModels;assembly=FPSPatcher.ViewModels"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance ViewModels:PatchFpsViewModel, IsDesignTimeCreatable=True}">
+             d:DataContext="{d:DesignInstance ViewModels:PatchFPSViewModel, IsDesignTimeCreatable=True}">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -25,9 +25,9 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0"
-                   Text="FPS Lock:" ToolTip="{StaticResource FpsTooltip}" />
-        <TextBox Grid.Row="0" Grid.Column="1" x:Name="FpsTextBox"
-                 Text="{Binding FpsLimit}" ToolTip="{StaticResource FpsTooltip}" />
+                   Text="FPS Lock:" ToolTip="{StaticResource FPSTooltip}" />
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="FPSTextBox"
+                 Text="{Binding FPSLimit}" ToolTip="{StaticResource FPSTooltip}" />
         <TextBlock Grid.Row="1" Grid.Column="0"
                    Text="r.OneFrameThreadLag:" ToolTip="{StaticResource ROneFrameThreadLagToolTip}"/>
         <TextBox Grid.Row="1" Grid.Column="1"

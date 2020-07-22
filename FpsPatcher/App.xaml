@@ -1,8 +1,8 @@
-﻿<Application x:Class="FpsPatcher.App"
+﻿<Application x:Class="FPSPatcher.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:FpsPatcher"
-             xmlns:ViewModels="clr-namespace:FpsPatcher.ViewModels;assembly=FpsPatcher.ViewModels"
+             xmlns:local="clr-namespace:FPSPatcher"
+             xmlns:ViewModels="clr-namespace:FPSPatcher.ViewModels;assembly=FPSPatcher.ViewModels"
              Startup="App_OnStartup">
     <Application.Resources>
         <ResourceDictionary>

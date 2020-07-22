@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 
 
-namespace FpsPatcher.ViewModels.Commands {
+namespace FPSPatcher.ViewModels.Commands {
     /// <summary>
     /// Provides a reusable implementation of the ICommand interface that enables user to create commands from delegates.
     /// </summary>

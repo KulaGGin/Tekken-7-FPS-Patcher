@@ -1,6 +1,6 @@
 #include "Mod.h"
 
-namespace FpsPatcher {
+namespace FPSPatcher {
     void Mod::SwitchMod() {
         if(_enabled) {
             _enabled = false;

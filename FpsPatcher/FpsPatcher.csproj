@@ -6,11 +6,11 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FpsPatcher.Converters\FpsPatcher.Converters.csproj" />
-    <ProjectReference Include="..\FpsPatcher.Managers\FpsPatcher.Managers.csproj" />
-    <ProjectReference Include="..\FpsPatcher.Patcher\FpsPatcher.Patcher.csproj" />
-    <ProjectReference Include="..\FpsPatcher.ViewModels\FpsPatcher.ViewModels.csproj" />
-    <ProjectReference Include="..\FpsPatcher.Views\FpsPatcher.Views.csproj" />
+    <ProjectReference Include="..\FPSPatcher.Converters\FPSPatcher.Converters.csproj" />
+    <ProjectReference Include="..\FPSPatcher.Managers\FPSPatcher.Managers.csproj" />
+    <ProjectReference Include="..\FPSPatcher.Patcher\FPSPatcher.Patcher.csproj" />
+    <ProjectReference Include="..\FPSPatcher.ViewModels\FPSPatcher.ViewModels.csproj" />
+    <ProjectReference Include="..\FPSPatcher.Views\FPSPatcher.Views.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

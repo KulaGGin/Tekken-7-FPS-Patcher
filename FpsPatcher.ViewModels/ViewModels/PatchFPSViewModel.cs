@@ -5,14 +5,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FpsPatcher.Patcher.Mods.DllMod;
-using FpsPatcher.ViewModels.Commands;
+using FPSPatcher.Patcher.Mods.DllMod;
+using FPSPatcher.ViewModels.Commands;
 using Microsoft.Win32;
 using Patcher.Mods.Ini_Mod;
 
 
-namespace FpsPatcher.ViewModels {
-    public class PatchFpsViewModel : BaseViewModel {
+namespace FPSPatcher.ViewModels {
+    public class PatchFPSViewModel : BaseViewModel {
         public string _openFileDialogStartDirectory = AppDomain.CurrentDomain.BaseDirectory;
         private bool _oneFrameThreadLag = true;
         private ActionCommand _patchCommand;
@@ -21,7 +21,7 @@ namespace FpsPatcher.ViewModels {
         private readonly DllMod _dllMod = new DllMod();
 
 
-        public PatchFpsViewModel() {
+        public PatchFPSViewModel() {
             string steamPath = GetSteamPath();
 
             if(steamPath != "") {
@@ -33,7 +33,7 @@ namespace FpsPatcher.ViewModels {
             }
         }
 
-        public int FpsLimit { get; set; } = 120;
+        public int FPSLimit { get; set; } = 120;
 
         public bool OneFrameThreadLag {
             get {
@@ -57,7 +57,7 @@ namespace FpsPatcher.ViewModels {
         public void PatchAction(object tekkenShippingExePath) {
 
             _rOneFrameThreadLagMod.ApplyMod(Convert.ToInt32(OneFrameThreadLag));
-            _dllMod.ApplyMod(tekkenShippingExePath as string, FpsLimit);
+            _dllMod.ApplyMod(tekkenShippingExePath as string, FPSLimit);
         }
 
         static string GetSteamPath() {
