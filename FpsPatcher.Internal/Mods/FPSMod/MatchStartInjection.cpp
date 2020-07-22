@@ -4,8 +4,9 @@
 
 namespace FpsPatcher {
 
-    MatchStartInjection::MatchStartInjection(MemoryCommando::MemoryCommando& memoryCommando, uintptr_t inGameMaxFpsAddress):
+    MatchStartInjection::MatchStartInjection(MemoryCommando::MemoryCommando& memoryCommando, uintptr_t inGameMaxFpsAddress, size_t maxFPSValue):
     CodeCaveAoBInjection(memoryCommando) {
+        _maxFPSValue = maxFPSValue;
         _inGameMaxFpsAddress = inGameMaxFpsAddress;
         _aobSignature = "53 48 83 EC 50 48 8B 05 ?? ?? ?? ?? 48 31 E0 48 89 44 24 40 80 79 62 00 0F B6 DA 0F 84 60 01 00 00";
         _originalInstructionsLength = 5;
@@ -18,7 +19,7 @@ namespace FpsPatcher {
         _codeCaveAddress = MakeCodeCave(_memoryCommando, afterInjectionAddress, _codeCaveMachineCode);
         _memoryCommando.AppendTrampolineMachineCode(_injectionMachineCode, _injectionAddress, _codeCaveAddress);
         _customMaxFpsAddress = _codeCaveAddress + 0x100;
-        _memoryCommando.WriteVirtualMemory(_customMaxFpsAddress, 180.0f);
+        _memoryCommando.WriteVirtualMemory(_customMaxFpsAddress, static_cast<float>(_maxFPSValue));
     }
 
     std::vector<BYTE> MatchStartInjection::GenerateCodeCaveMachineCode(const uintptr_t inGameMaxFpsAddress) {
