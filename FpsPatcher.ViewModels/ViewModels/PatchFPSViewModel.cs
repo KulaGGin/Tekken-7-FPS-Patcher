@@ -57,7 +57,7 @@ namespace FpsPatcher.ViewModels {
         public void PatchAction(object tekkenShippingExePath) {
 
             _rOneFrameThreadLagMod.ApplyMod(Convert.ToInt32(OneFrameThreadLag));
-            _dllMod.ApplyMod(tekkenShippingExePath as string);
+            _dllMod.ApplyMod(tekkenShippingExePath as string, FpsLimit);
         }
 
         static string GetSteamPath() {
