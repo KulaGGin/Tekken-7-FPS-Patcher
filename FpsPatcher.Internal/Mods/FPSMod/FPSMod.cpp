@@ -1,15 +1,19 @@
 #include "FPSMod.h"
 
+
+#include <fstream>
+#include "inipp.h"
 #include <thread>
 
 namespace FpsPatcher {
     FpsMod::FpsMod(MemoryCommando::MemoryCommando& memoryCommando):
         _memoryCommando(memoryCommando),
         _inGameFPSVariable{ GetInGameMaxFpsVariableAddress(_memoryCommando) },
-        _matchStartInjection{ memoryCommando, _inGameFPSVariable },
+        _maxFps(InitializeMaxFps()),
+        _matchStartInjection{ memoryCommando, _inGameFPSVariable, _maxFps },
         _simpleSelectFixInjection{ memoryCommando },
         _matchEndInjection{ memoryCommando, _inGameFPSVariable },
-        _matchExitInjection(memoryCommando, _inGameFPSVariable){
+        _matchExitInjection(memoryCommando, _inGameFPSVariable) {
 
     }
 
@@ -41,5 +45,15 @@ namespace FpsPatcher {
         } while(!fpsAddress);
 
         return fpsAddress;
+    }
+
+    size_t FpsMod::InitializeMaxFps() const {
+        inipp::Ini<char> ini;
+        std::ifstream is("maxFPS.ini");
+        ini.parse(is);
+        int maxFPS{};
+        inipp::extract(ini.sections["maxFps"]["maxFps"], maxFPS);
+
+        return size_t(maxFPS);
     }
 }

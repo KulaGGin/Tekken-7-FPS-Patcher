@@ -19,12 +19,15 @@ namespace FpsPatcher {
     protected:
         MemoryCommando::MemoryCommando& _memoryCommando;
         uintptr_t _inGameFPSVariable;
+        size_t _maxFps;
         MatchStartInjection _matchStartInjection;
         SimpleSelectFixInjection _simpleSelectFixInjection;
         MatchEndInjection _matchEndInjection;
         MatchExitInjection _matchExitInjection;
 
         static uintptr_t GetInGameMaxFpsVariableAddress(MemoryCommando::MemoryCommando& memoryCommando);
+    private:
+        size_t InitializeMaxFps() const;
     };
 
     template <typename Classname>
