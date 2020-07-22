@@ -11,7 +11,6 @@ __declspec(dllexport) DWORD WINAPI FpsPatchInternal(HMODULE hModule) {
     fpsMod.ApplyMod();
 
     FreeLibraryAndExitThread(hModule, 0);
-    return 0;
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule,
