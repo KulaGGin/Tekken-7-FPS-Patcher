@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FpsPatcher.Managers;
 using Microsoft.Win32;
 using Patcher.Mods;
-using AsmResolver.X86;
+using PeNet;
+using PeNet.Header.Pe;
 
 
 namespace FpsPatcher.Patcher.Mods.DllMod {
@@ -27,18 +30,39 @@ namespace FpsPatcher.Patcher.Mods.DllMod {
 
         #endregion
 
-        public void ApplyMod(string tekkenShippingExePath) {
+        public void ApplyMod(string tekkenShippingExePath, int fpsLimit) {
             string tekkenShippingFolder = Path.GetDirectoryName(tekkenShippingExePath);
+            string maxFpsIniFilePath = tekkenShippingFolder + "\\maxFps.ini";
+
+            IniFileManager iniFileManager = new IniFileManager(maxFpsIniFilePath);
+
+            iniFileManager.WriteValue("maxFps", "maxFps", fpsLimit.ToString());
 
             if (!File.Exists(_fpsPatcherDllPath)) {
                 throw new Exception("Can't find" + _fpsPatcherDllName + ".");
             }
 
-            File.Copy(_fpsPatcherDllPath, tekkenShippingFolder + "\\" + _fpsPatcherDllName);
+            File.Copy(_fpsPatcherDllPath, tekkenShippingFolder + "\\" + _fpsPatcherDllName, true);
 
-            var peFile = new Pe
-            peFile.AddImport("_fpsPatcherDllName", "StartPage");
+            // todo align by 10000 only if we're going to write it
+            // load the target file and change size so it's aligned by 0x10000
+            List<byte> tekkenExeBytes = File.ReadAllBytes(tekkenShippingExePath).ToList();
+            var neededForAlignment = 0x10000 - tekkenExeBytes.Count % 0x10000;
+            tekkenExeBytes.AddRange(Enumerable.Repeat<byte>(0x00, neededForAlignment));
+            // open the file in PeFile
+            var tekkenExePeFile = new PeNet.PeFile(tekkenExeBytes.ToArray());
 
+            bool isDllInjected = tekkenExePeFile.ImportedFunctions.ToList().Any(function => function.DLL == _fpsPatcherDllName);
+            if (isDllInjected)
+                return;
+
+            //add our new import to the exe (in memory)
+            var ai = new AdditionalImport(_fpsPatcherDllName, new List<string> { "?FpsPatchInternal@@YAKPEAUHINSTANCE__@@@Z" });
+            tekkenExePeFile.AddImports(new List<AdditionalImport> { ai });
+            //write changes to disk
+            File.WriteAllBytes(tekkenShippingExePath, tekkenExePeFile.RawFile.ToArray());
+
+            // todo write that we're done with the patching
         }
     }
 }
