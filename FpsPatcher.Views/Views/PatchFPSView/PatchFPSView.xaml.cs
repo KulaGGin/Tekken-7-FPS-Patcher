@@ -23,7 +23,17 @@ namespace FPSPatcher.Views {
     public partial class PatchFPSView : UserControl {
         public PatchFPSView() {
             InitializeComponent();
-            
+            Loaded += PatchFPSView_Loaded;
+        }
+
+        private void PatchFPSView_Loaded(object sender, RoutedEventArgs e) {
+            if(DataContext is PatchFPSViewModel patchFPSViewModel) {
+                patchFPSViewModel.Message += PatchFPSViewModel_Message;
+            }
+        }
+
+        private void PatchFPSViewModel_Message(object sender, string e) {
+            MessageBox.Show(e);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
@@ -36,7 +46,7 @@ namespace FPSPatcher.Views {
             MessageBox.Show("Choose " + executableName);
             OpenFileDialog openFileDialog = new OpenFileDialog {
                                                                    Filter = $"{executableName}|{executableName}",
-                                                                   InitialDirectory = patchFPSViewModel._openFileDialogStartDirectory
+                                                                   InitialDirectory = patchFPSViewModel.OpenFileDialogStartDirectory
                                                                };
 
             bool? openFileDialogResult = openFileDialog.ShowDialog();
@@ -45,7 +55,6 @@ namespace FPSPatcher.Views {
                 return;
 
             patchFPSViewModel.PatchCommand.Execute(openFileDialog.FileName);
-
         }
     }
 }
