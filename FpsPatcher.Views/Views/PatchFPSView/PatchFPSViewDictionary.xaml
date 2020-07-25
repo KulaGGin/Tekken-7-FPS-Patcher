@@ -7,11 +7,11 @@
         <TextBlock>
             Whether to allow the rendering thread to lag one frame behind the game thread.
             <LineBreak />
-            Default is 1.
+            The game has 1 set by default.
             <LineBreak />
-            Negatively affects maximum possible FPS. If your machine can do 500 FPS with 1, then if you set it 0, it will be around 450.
+            Value of 0 negatively affects maximum possible FPS. If your machine can do 500 FPS with 1, then if you set it 0, it will be around 450.
             <LineBreak />
-            Set to 0 for lower input lag.
+            0 supposedly results in lower input lag.
             <LineBreak />
         </TextBlock>
     </ToolTip>
