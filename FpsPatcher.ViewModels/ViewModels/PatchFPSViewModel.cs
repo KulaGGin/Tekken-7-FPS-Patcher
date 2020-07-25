@@ -13,9 +13,11 @@ using Patcher.Mods.Ini_Mod;
 
 namespace FPSPatcher.ViewModels {
     public class PatchFPSViewModel : BaseViewModel {
-        public string _openFileDialogStartDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        public string OpenFileDialogStartDirectory = AppDomain.CurrentDomain.BaseDirectory;
         private bool _oneFrameThreadLag = true;
         private ActionCommand _patchCommand;
+
+        public event EventHandler<string> Message;
 
         private readonly ROneFrameThreadLagMod _rOneFrameThreadLagMod = new ROneFrameThreadLagMod();
         private readonly DLLMod _dllMod = new DLLMod();
@@ -28,7 +30,7 @@ namespace FPSPatcher.ViewModels {
                 string tekkenShippingExePath = steamPath + "\\steamapps\\common\\TEKKEN 7\\TekkenGame\\Binaries\\Win64";
 
                 if(Directory.Exists(tekkenShippingExePath)) {
-                    this._openFileDialogStartDirectory = tekkenShippingExePath;
+                    this.OpenFileDialogStartDirectory = tekkenShippingExePath;
                 }
             }
         }
@@ -57,18 +59,31 @@ namespace FPSPatcher.ViewModels {
         public void PatchAction(object tekkenShippingExePath) {
 
             _rOneFrameThreadLagMod.ApplyMod(Convert.ToInt32(OneFrameThreadLag));
-            _dllMod.ApplyMod(tekkenShippingExePath as string, FPSLimit);
+
+            try {
+                _dllMod.ApplyMod(tekkenShippingExePath as string, FPSLimit);
+                RaiseMessageEvent("Done patching.");
+            }
+            catch (FileNotFoundException exception) {
+                RaiseMessageEvent(exception.Message);
+            }
+            catch (IOException exception) {
+                RaiseMessageEvent(exception.Message +
+                                  "\nThe game is probably running and locks the file. Close game's process and try again.");
+            }
         }
 
         static string GetSteamPath() {
-            string steamPath;
+            using RegistryKey view = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, System.Environment.Is64BitOperatingSystem ? RegistryView.Registry32 : RegistryView.Default);
 
-            using(RegistryKey view = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, System.Environment.Is64BitOperatingSystem ? RegistryView.Registry32 : RegistryView.Default)) {
-                using RegistryKey steam = view.OpenSubKey(@"SOFTWARE\Valve\Steam", false);
-                steamPath = steam?.GetValue("InstallPath", "") as string;
-            }
+            using RegistryKey steam = view.OpenSubKey(@"SOFTWARE\Valve\Steam", false);
+            string steamPath = steam?.GetValue("InstallPath", "") as string;
 
             return steamPath;
+        }
+
+        protected virtual void RaiseMessageEvent(string e) {
+            Message?.Invoke(this, e);
         }
     }
 }
