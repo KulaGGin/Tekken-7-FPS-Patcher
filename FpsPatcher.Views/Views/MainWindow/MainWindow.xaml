@@ -7,7 +7,8 @@
         xmlns:ViewModels="clr-namespace:FPSPatcher.ViewModels;assembly=FPSPatcher.ViewModels"
         xmlns:Views="clr-namespace:FPSPatcher.Views"
         mc:Ignorable="d"
-        Title="Tekken 7 FPS Patcher" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+        Title="Tekken 7 FPS Patcher" SizeToContent="WidthAndHeight" ResizeMode="NoResize"
+        Icon="/FPSPatcher.Views;component/Views/MainWindow/tekken-7-icon.png">
     <Window.Resources>
         <ViewModels:PatchFPSViewModel x:Key="PatchFPSViewModel"/>
     </Window.Resources>
@@ -15,4 +16,3 @@
         <ContentControl Content="{StaticResource PatchFPSViewModel}" />
     </Grid>
 </Window>
-<!-- TODO: Add icon to the program -->

@@ -6,11 +6,23 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Views\MainWindow\icons\tekken-7-icon.png" />
+    <None Remove="Views\MainWindow\tekken-7-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MainWindow\icons\tekken-7-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\FPSPatcher.Converters\FPSPatcher.Converters.csproj" />
     <ProjectReference Include="..\FPSPatcher.ViewModels\FPSPatcher.ViewModels.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\MainWindow\tekken-7-icon.png" />
   </ItemGroup>
 </Project>
