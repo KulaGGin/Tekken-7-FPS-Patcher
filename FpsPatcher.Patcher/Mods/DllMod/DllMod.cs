@@ -55,48 +55,47 @@ namespace FPSPatcher.Patcher.Mods.DLLMod {
             iniFileManager.WriteValue("maxFPS", "maxFPS", fpsLimit.ToString());
         }
 
-        private bool InjectInternalDLL(string tekkenShippingExePath) {
-            // todo align by 10000 only if we're going to write it
-            // todo create backup of the original tekkenShippingExe file
-            // todo write that we're done with the patching
-            // todo dynamically find out the name of the first exported function and import it
+        private void InjectInternalDLL(string tekkenShippingExePath) {
+
             var tekkenShippingExeFile = new {
+                                                rawBytes = File.ReadAllBytes(tekkenShippingExePath).ToList(),
                                                 fullPath = tekkenShippingExePath,
                                                 fileName = Path.GetFileNameWithoutExtension(tekkenShippingExePath),
                                                 directory = Path.GetDirectoryName(tekkenShippingExePath),
                                                 extension = Path.GetExtension(tekkenShippingExePath)
                                             };
 
-            // load the target file
-            List<byte> tekkenExeBytes = File.ReadAllBytes(tekkenShippingExeFile.fullPath).ToList();
-
             // open the file in PeFile
-            PeFile tekkenExePeFile = new PeFile(tekkenExeBytes.ToArray());
+            PeFile tekkenExePeFile = new PeFile(tekkenShippingExeFile.rawBytes.ToArray());
 
             // See if dll is already injected
-            bool isDLLInjected = (tekkenExePeFile.ImportedFunctions ?? throw new InvalidOperationException("Imported functions array is null")).ToList().Any(function => function.DLL == _fpsPatcherDLLName);
+            if (tekkenExePeFile.ImportedFunctions == null)
+                throw new InvalidOperationException("Imported functions array is null");
+
+            bool isDLLInjected = tekkenExePeFile.ImportedFunctions.ToList().Any(function => function.DLL == _fpsPatcherDLLName);
 
             // Return because dll is already injected and doesn't need to be injected again.
-            if(isDLLInjected)
-                return true;
+            if(isDLLInjected) return;
 
             // If dll isn't injected, inject it
             // align the file by 10000 because of a bug in PeNet
-            int neededForAlignment = 0x10000 - tekkenExeBytes.Count % 0x10000;
-            tekkenExeBytes.AddRange(Enumerable.Repeat<byte>(0x00, neededForAlignment));
+            int neededForAlignment = 0x10000 - tekkenShippingExeFile.rawBytes.Count % 0x10000;
+            tekkenShippingExeFile.rawBytes.AddRange(Enumerable.Repeat<byte>(0x00, neededForAlignment));
+
             // reopen the Pe file
-            tekkenExePeFile = new PeFile(tekkenExeBytes.ToArray());
+            tekkenExePeFile = new PeFile(tekkenShippingExeFile.rawBytes.ToArray());
+
+            // determine first exported function from the dll
+            PeFile dllPeFile = new PeFile(_fpsPatcherDLLPath);
 
             //add our new import to the exe (in memory)
-            tekkenExePeFile.AddImport(_fpsPatcherDLLName, "?FPSPatchInternal@@YAKPEAUHINSTANCE__@@@Z");
-
+            tekkenExePeFile.AddImport(_fpsPatcherDLLName, dllPeFile.ExportedFunctions?[0].Name ?? throw new InvalidOperationException("Can't access ExportedFunctions."));
+            
             //Backup original executable in case of crashes.
-            File.Copy(tekkenShippingExeFile.fullPath, tekkenShippingExeFile.directory + tekkenShippingExeFile.directory + "_backup" + tekkenShippingExeFile.extension);
+            File.Copy(tekkenShippingExeFile.fullPath, tekkenShippingExeFile.directory + "\\" + tekkenShippingExeFile.fileName + "_backup" + tekkenShippingExeFile.extension, true);
 
             //write changes to disk
             File.WriteAllBytes(tekkenShippingExePath, tekkenExePeFile.RawFile.ToArray());
-
-            return true;
         }
     }
 }
