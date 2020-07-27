@@ -32,6 +32,7 @@ namespace FPSPatcher {
     }
 
     uintptr_t FPSMod::GetInGameMaxFPSVariableAddress(MemoryCommando::MemoryCommando& memoryCommando) {
+        // todo show message box if it can't find the fpsVariableAddress, then close the library without crashing the game.
         const uintptr_t fpsBaseClassOffsetAddress = memoryCommando.ScanVirtualMemory(L"TekkenGame-Win64-Shipping.exe",
             std::string(std::string("?? ?? ?? ?? F3 0F 10 00 41 0F 2F C0 77 03 0F 28 C6 0F 28 74 24 40 44 0F 28 44 24 30 44 0F 28 4C 24 20 48 83 C4 50 5B C3")))[0];
 

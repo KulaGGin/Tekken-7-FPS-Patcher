@@ -20,6 +20,7 @@ namespace FPSPatcher {
     }
 
     uintptr_t AOBInjection::InitializeInjectionAddress(MemoryCommando::MemoryCommando& memoryCommando, const std::string& aobInjectionSignature) {
+        // todo Show message that it can't find the aob signature, close the dll without crashing the process 
         const uintptr_t injectionAddress = memoryCommando.ScanVirtualMemory(L"TekkenGame-Win64-Shipping.exe", aobInjectionSignature)[0];
 
         return injectionAddress;
