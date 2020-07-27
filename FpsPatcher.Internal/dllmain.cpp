@@ -7,7 +7,7 @@
 
 __declspec(dllexport) DWORD WINAPI FPSPatchInternal(HMODULE hModule) {
     MemoryCommando::MemoryCommando memoryCommando;
-    FPSPatcher::FPSMod fpsMod(memoryCommando);
+    FPSPatcher::FPSMod fpsMod(memoryCommando, hModule);
     fpsMod.ApplyMod();
 
     FreeLibraryAndExitThread(hModule, 0);

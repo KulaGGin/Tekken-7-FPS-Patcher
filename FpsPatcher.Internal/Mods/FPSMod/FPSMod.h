@@ -9,7 +9,7 @@
 namespace FPSPatcher {
     class FPSMod final : Mod {
     public:
-        explicit FPSMod(MemoryCommando::MemoryCommando& memoryCommando);
+        explicit FPSMod(MemoryCommando::MemoryCommando& memoryCommando, HMODULE moduleHandle);
 
         void ApplyMod() override;
         void CancelMod() override;
@@ -18,6 +18,7 @@ namespace FPSPatcher {
         static void Append(std::vector<Classname>& vectorToAppendTo, const std::vector<Classname>& vectorToAppend);
     protected:
         MemoryCommando::MemoryCommando& _memoryCommando;
+        HMODULE _moduleHandle;
         uintptr_t _inGameFPSVariable;
         size_t _maxFPS;
         MatchStartInjection _matchStartInjection;
@@ -25,7 +26,7 @@ namespace FPSPatcher {
         MatchEndInjection _matchEndInjection;
         MatchExitInjection _matchExitInjection;
 
-        static uintptr_t GetInGameMaxFPSVariableAddress(MemoryCommando::MemoryCommando& memoryCommando);
+        uintptr_t GetInGameMaxFPSVariableAddress(MemoryCommando::MemoryCommando& memoryCommando);
     private:
         size_t InitializeMaxFPS() const;
     };

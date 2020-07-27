@@ -1,13 +1,15 @@
 #include "FPSMod.h"
 
-
+#include <windows.h>
 #include <fstream>
 #include "inipp.h"
 #include <thread>
+#include <winuser.h>
 
 namespace FPSPatcher {
-    FPSMod::FPSMod(MemoryCommando::MemoryCommando& memoryCommando):
+    FPSMod::FPSMod(MemoryCommando::MemoryCommando& memoryCommando, HMODULE moduleHandle):
         _memoryCommando(memoryCommando),
+        _moduleHandle(moduleHandle),
         _inGameFPSVariable{ GetInGameMaxFPSVariableAddress(_memoryCommando) },
         _maxFPS(InitializeMaxFPS()),
         _matchStartInjection{ memoryCommando, _inGameFPSVariable, _maxFPS },
@@ -32,9 +34,15 @@ namespace FPSPatcher {
     }
 
     uintptr_t FPSMod::GetInGameMaxFPSVariableAddress(MemoryCommando::MemoryCommando& memoryCommando) {
-        // todo show message box if it can't find the fpsVariableAddress, then close the library without crashing the game.
-        const uintptr_t fpsBaseClassOffsetAddress = memoryCommando.ScanVirtualMemory(L"TekkenGame-Win64-Shipping.exe",
-            std::string(std::string("?? ?? ?? ?? F3 0F 10 00 41 0F 2F C0 77 03 0F 28 C6 0F 28 74 24 40 44 0F 28 44 24 30 44 0F 28 4C 24 20 48 83 C4 50 5B C3")))[0];
+        const std::vector<uintptr_t> scanResults = memoryCommando.ScanVirtualMemory(L"TekkenGame-Win64-Shipping.exe",
+            std::string(std::string("?? ?? ?? ?? F3 0F 10 00 41 0F 2F C0 77 03 0F 28 C6 0F 28 74 24 40 44 0F 28 44 24 30 44 0F 28 4C 24 20 48 83 C4 50 5B C3")));
+
+        if(scanResults.empty()) {
+            MessageBox(nullptr, L"Couldn't find a pattern of the fpsBaseClassOffsetAddress. Freeing dll and exiting...", nullptr, MB_OK);
+            FreeLibraryAndExitThread(_moduleHandle, 1);
+        }
+
+        const uintptr_t fpsBaseClassOffsetAddress = scanResults[0];
 
         const ptrdiff_t fpsBaseClassOffset = ptrdiff_t(UINT64_MAX << 32 | memoryCommando.ReadVirtualMemory<unsigned>(fpsBaseClassOffsetAddress));
 
