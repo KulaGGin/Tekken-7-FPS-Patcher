@@ -17,7 +17,7 @@ namespace FPSPatcher {
         FPSMod::Append(_codeCaveMachineCode, _originalMachineCode);
         const uintptr_t afterInjectionAddress = _injectionAddress + _originalInstructionsLength;
         _codeCaveAddress = MakeCodeCave(_memoryCommando, afterInjectionAddress, _codeCaveMachineCode);
-        _memoryCommando.AppendTrampolineMachineCode(_injectionMachineCode, _injectionAddress, _codeCaveAddress);
+        _memoryCommando.AppendJumpMachineCode(_injectionMachineCode, _injectionAddress, _codeCaveAddress);
         _customMaxFPSAddress = _codeCaveAddress + 0x100;
         _memoryCommando.WriteVirtualMemory(_customMaxFPSAddress, static_cast<float>(_maxFPSValue));
     }

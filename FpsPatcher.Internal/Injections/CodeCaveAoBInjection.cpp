@@ -17,7 +17,7 @@ namespace FPSPatcher {
         codeCaveStartAddress = memoryCommando.AllocateVirtualMemoryNear(codeCaveStartAddress, codeCaveMachineCode.size() + 5);
 
         const uintptr_t codeCaveMachineCodeEndAddress = codeCaveStartAddress + codeCaveMachineCode.size();
-        memoryCommando.AppendTrampolineMachineCode(codeCaveMachineCode, codeCaveMachineCodeEndAddress, afterInjectionAddress);
+        memoryCommando.AppendJumpMachineCode(codeCaveMachineCode, codeCaveMachineCodeEndAddress, afterInjectionAddress);
 
         memoryCommando.WriteVirtualMemory(codeCaveStartAddress, codeCaveMachineCode);
 

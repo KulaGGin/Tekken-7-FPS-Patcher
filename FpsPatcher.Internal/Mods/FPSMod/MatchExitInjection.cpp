@@ -13,7 +13,7 @@ namespace FPSPatcher {
         FPSMod::Append(_codeCaveMachineCode, _originalMachineCode);
         const uintptr_t afterInjectionAddress = _injectionAddress + _originalInstructionsLength;
         _codeCaveAddress = MakeCodeCave(_memoryCommando, afterInjectionAddress, _codeCaveMachineCode);
-        _memoryCommando.AppendTrampolineMachineCode(_injectionMachineCode, _injectionAddress, _codeCaveAddress);
+        _memoryCommando.AppendJumpMachineCode(_injectionMachineCode, _injectionAddress, _codeCaveAddress);
     }
 
     std::vector<BYTE> MatchExitInjection::GenerateCodeCaveMachineCode(__int32 inGameFPSVariableAddress) {
