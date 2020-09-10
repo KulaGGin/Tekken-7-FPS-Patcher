@@ -67,4 +67,11 @@ namespace FPSPatcher {
 
         return size_t(maxFPS);
     }
+
+    void __declspec(naked) SetFPS(float fps, uintptr_t fpsAddress) {
+        __asm {
+            //push rax
+            //pop rax
+        }
+    }
 }
