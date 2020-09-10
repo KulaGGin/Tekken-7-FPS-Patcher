@@ -26,7 +26,7 @@ namespace FPSPatcher {
         MatchEndInjection _matchEndInjection;
         MatchExitInjection _matchExitInjection;
 
-        uintptr_t GetInGameMaxFPSVariableAddress(MemoryCommando::MemoryCommando& memoryCommando);
+        uintptr_t GetInGameMaxFPSVariableAddress(MemoryCommando::MemoryCommando& memoryCommando) const;
     private:
         size_t InitializeMaxFPS() const;
     };
