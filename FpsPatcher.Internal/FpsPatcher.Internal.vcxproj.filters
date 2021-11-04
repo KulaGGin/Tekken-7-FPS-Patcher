@@ -60,6 +60,14 @@
     <ClInclude Include="Mods\FPSMod\MatchExitInjection.h">
       <Filter>Mods\FPSMod</Filter>
     </ClInclude>
+    <ClInclude Include="Mods\ObjectProxy.h" />
+    <ClInclude Include="Mods\MemoryManager.h" />
+    <ClInclude Include="Mods\CreateToolhelp32SnapshotException.h" />
+    <ClInclude Include="Mods\Exceptions\BaseException.h" />
+    <ClInclude Include="Mods\Exceptions\CreateToolhelp32SnapshotException.h" />
+    <ClInclude Include="Mods\Exceptions\Module32Exception.h" />
+    <ClInclude Include="Mods\Exceptions\VirtualQueryException.h" />
+    <ClInclude Include="Mods\Exceptions\WinAPIException.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -164,6 +164,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Mods\CreateToolhelp32SnapshotException.h" />
+    <ClInclude Include="Mods\Exceptions\BaseException.h" />
+    <ClInclude Include="Mods\Exceptions\CreateToolhelp32SnapshotException.h" />
+    <ClInclude Include="Mods\Exceptions\Module32Exception.h" />
+    <ClInclude Include="Mods\Exceptions\VirtualQueryException.h" />
+    <ClInclude Include="Mods\Exceptions\WinAPIException.h" />
     <ClInclude Include="Mods\FPSMod\MatchExitInjection.h" />
     <ClInclude Include="Mods\FPSMod\MatchEndInjection.h" />
     <ClInclude Include="Mods\FPSMod\MatchStartInjection.h" />
@@ -171,8 +177,10 @@
     <ClInclude Include="Injections\CodeCaveAoBInjection.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Injections\AOBInjection.h" />
+    <ClInclude Include="Mods\MemoryManager.h" />
     <ClInclude Include="Mods\Mod.h" />
     <ClInclude Include="Mods\FPSMod\SimpleSelectFixInjection.h" />
+    <ClInclude Include="Mods\ObjectProxy.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mods\FPSMod\MatchExitInjection.cpp" />
