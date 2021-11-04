@@ -1,3 +1,6 @@
 [submodule "MemoryCommandoCPP"]
 	path = MemoryCommandoCPP
 	url = https://github.com/KulaGGin/MemoryCommandoCPP.git
+[submodule "minhook"]
+	path = minhook
+	url = https://github.com/TsudaKageyu/minhook
