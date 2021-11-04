@@ -18,10 +18,13 @@ BOOL APIENTRY DllMain( HMODULE hModule,
                        LPVOID lpReserved
                      )
 {
+    HANDLE hObject;
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-        CloseHandle(CreateThread(nullptr, 0, LPTHREAD_START_ROUTINE(FPSPatchInternal), hModule, 0, nullptr));
+        hObject = CreateThread(nullptr, 0, LPTHREAD_START_ROUTINE(FPSPatchInternal), hModule, 0, nullptr);
+        CloseHandle(hObject);
+        break;
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:
