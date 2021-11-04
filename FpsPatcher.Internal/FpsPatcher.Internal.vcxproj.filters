@@ -16,50 +16,14 @@
     <ClCompile Include="Mods\Mod.cpp">
       <Filter>Mods</Filter>
     </ClCompile>
-    <ClCompile Include="Mods\FPSMod\FPSMod.cpp">
-      <Filter>Mods\FPSMod</Filter>
-    </ClCompile>
-    <ClCompile Include="Injections\CodeCaveAoBInjection.cpp">
-      <Filter>Injections</Filter>
-    </ClCompile>
-    <ClCompile Include="Injections\AOBInjection.cpp">
-      <Filter>Injections</Filter>
-    </ClCompile>
-    <ClCompile Include="Mods\FPSMod\MatchStartInjection.cpp">
-      <Filter>Mods\FPSMod</Filter>
-    </ClCompile>
-    <ClCompile Include="Mods\FPSMod\MatchEndInjection.cpp">
-      <Filter>Mods\FPSMod</Filter>
-    </ClCompile>
-    <ClCompile Include="Mods\FPSMod\SimpleSelectFixInjection.cpp" />
-    <ClCompile Include="Mods\FPSMod\MatchExitInjection.cpp">
-      <Filter>Mods\FPSMod</Filter>
-    </ClCompile>
+    <ClCompile Include="Mods\FPSUnlocker\FPSUnlocker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="Mods\Mod.h">
       <Filter>Mods</Filter>
     </ClInclude>
-    <ClInclude Include="Mods\FPSMod\FPSMod.h">
-      <Filter>Mods\FPSMod</Filter>
-    </ClInclude>
-    <ClInclude Include="Injections\CodeCaveAoBInjection.h">
-      <Filter>Injections</Filter>
-    </ClInclude>
-    <ClInclude Include="Injections\AOBInjection.h">
-      <Filter>Injections</Filter>
-    </ClInclude>
-    <ClInclude Include="Mods\FPSMod\MatchStartInjection.h">
-      <Filter>Mods\FPSMod</Filter>
-    </ClInclude>
-    <ClInclude Include="Mods\FPSMod\MatchEndInjection.h">
-      <Filter>Mods\FPSMod</Filter>
-    </ClInclude>
-    <ClInclude Include="Mods\FPSMod\SimpleSelectFixInjection.h" />
-    <ClInclude Include="Mods\FPSMod\MatchExitInjection.h">
-      <Filter>Mods\FPSMod</Filter>
-    </ClInclude>
+    <ClInclude Include="Mods\FPSUnlocker\FPSUnlocker.h" />
     <ClInclude Include="Mods\ObjectProxy.h" />
     <ClInclude Include="Mods\MemoryManager.h" />
     <ClInclude Include="Mods\CreateToolhelp32SnapshotException.h" />

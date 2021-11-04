@@ -1,16 +1,14 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "framework.h"
 #include <Windows.h>
-#include <TlHelp32.h>
+
 #include "MemoryCommandoCPP/MemoryCommando/MemoryCommando.h"
-#include "Mods/FPSMod/FPSMod.h"
+#include "Mods/FPSUnlocker/FPSUnlocker.h"
 
+using namespace FPSPatcher;
 __declspec(dllexport) DWORD WINAPI FPSPatchInternal(HMODULE hModule) {
-    MemoryCommando::MemoryCommando memoryCommando;
-    FPSPatcher::FPSMod fpsMod(memoryCommando, hModule);
-    fpsMod.ApplyMod();
-
-    FreeLibraryAndExitThread(hModule, 0);
+    FPSUnlocker::Instance = std::make_shared<FPSUnlocker>();
+    ExitThread(0);
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule,
